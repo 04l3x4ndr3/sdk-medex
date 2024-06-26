@@ -2,19 +2,19 @@
     "name": "04l3x4ndr3/sdk-medex",
     "description": "Software Development Kit to MEDEX (non-official)",
     "type": "library",
-    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "ext-fileinfo": "*"
+    },
+    "license": "Apache-2.0",
     "autoload": {
         "psr-4": {
-            "04l3x4ndr3\\SdkMedex\\": "src/"
+            "O4l3x4ndr3\\SdkMedex\\": "src/"
         }
     },
     "authors": [
         {
             "name": "Alexandre G R Alves"
         }
-    ],
-    "require": {
-        "guzzlehttp/guzzle": "^7.8",
-        "ext-fileinfo": "*"
-    }
+    ]
 }
