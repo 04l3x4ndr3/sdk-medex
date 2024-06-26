@@ -10,7 +10,8 @@ use O4l3x4ndr3\SdkMedex\Configuration;
 class CallApi
 {
     const CONTENT_TYPE_JSON = 'application/json';
-    const TOKEN_TYPE = 'Basic';
+    const CONTENT_TYPE_URL_URLENCODED = "application/x-www-form-urlencoded";
+    const TOKEN_TYPE = 'Bearer';
     const PARTNER_HASH = "777111452";
     private Configuration $config;
     private ?array $header;
@@ -22,7 +23,7 @@ class CallApi
         $this->credential = $this->config->getCredential();
         $this->header = array_merge([
             'Content-Type' => self::CONTENT_TYPE_JSON,
-            'x-partner-hash' => self::PARTNER_HASH
+            'X-Partner-Hash' => self::PARTNER_HASH
         ], $this->config->getHttpHeader());
     }
 
@@ -49,6 +50,22 @@ class CallApi
     }
 
     /**
+     * @throws GuzzleException
+     */
+    public function accessToken(): object
+    {
+        $client = new Client();
+        $options = [
+            'headers' => [
+                'Content-Type' => self::CONTENT_TYPE_URL_URLENCODED,
+            ],
+            'form_params' => $this->config->getCredential()
+        ];
+        $res = $client->request('POST', 'https://partner-auth.medexapi.com/oauth2/token', $options);
+        return json_decode($res->getBody());
+    }
+
+    /**
      * @param string $method
      * @param string $endpoint
      * @param array|null $body
@@ -58,8 +75,9 @@ class CallApi
     public function call(string $method, string $endpoint, ?array $body = NULL): array|object
     {
         try {
+            $token = $this->accessToken();
+
             $this->credential = (new Configuration())->getCredential();
-            $token = base64_encode($this->credential["username"] . ":" . $this->credential["password"]);
             $client = new Client();
             $options = array_filter([
                 'headers' => [

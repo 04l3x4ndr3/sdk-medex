@@ -34,7 +34,7 @@ class Authorization {
         ?string $descricao_procedimento = null,
         ?string $phone = null,
         ?string $validade = null,
-        ?Places $places = null,
+        ?Places $places = new Places(),
         ?array $speciality = null
     ) {
         $this->token = $token;
