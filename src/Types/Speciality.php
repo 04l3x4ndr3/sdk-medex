@@ -77,7 +77,7 @@ class Speciality {
             "occupation" => $this->occupation,
             "id" => $this->id
         ], function ($value) {
-            return isset($value);
+            return !empty($value);
         });
     }
 }

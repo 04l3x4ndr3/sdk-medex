@@ -106,9 +106,10 @@ class Appointment {
             "cpf" => $this->cpf,
             "slots" => $this->slots,
             "company" => $this->company,
+            "slotAt" => $this->slotAt,
             "autorization" => $this->autorization->toArray()
         ], function ($value) {
-            return isset($value);
+            return !empty($value);
         });
     }
 }

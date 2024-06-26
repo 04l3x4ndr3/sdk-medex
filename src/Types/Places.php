@@ -93,7 +93,7 @@ class Places {
             "ug_rm" => $this->ug_rm,
             "id" => $this->id
         ], function ($value) {
-            return isset($value);
+            return !empty($value);
         });
     }
 }

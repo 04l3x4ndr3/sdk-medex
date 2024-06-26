@@ -207,7 +207,7 @@ class Authorization {
             "places" => $this->places->toArray(),
             "speciality" => $this->speciality
         ], function ($value) {
-            return isset($value);
+            return !empty($value);
         });
     }
 }

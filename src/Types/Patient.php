@@ -237,7 +237,7 @@ class Patient {
             "partner" => $this->partner,
             "createdAt" => $this->createdAt,
         ], function ($value) {
-            return isset($value);
+            return !empty($value);
         });
     }
 }
