@@ -4,10 +4,12 @@ namespace O4l3x4ndr3\SdkMedex;
 
 class Configuration
 {
+    public const ENV_AUTH = "auth";
     public const ENV_TMED = "tmed";
     public const ENV_AGENDA = "agenda";
     public const URL_TMED = "https://partner-telemedicina.medex.net.br";
     public const URL_AGENDA = "https://ppr-partnet.medexapi.com";
+    public const URL_AUTH = "https://partner-auth.medexapi.com/oauth2/token";
     private ?string $environment;
     private ?array $credentials;
     private ?array $httpHeader;
@@ -86,6 +88,8 @@ class Configuration
     {
         if ($this->getEnvironment() === self::ENV_AGENDA) {
             return self::URL_AGENDA;
+        } elseif ($this->getEnvironment() === self::ENV_AUTH) {
+            return self::URL_AUTH;
         }
         return self::URL_TMED;
     }
