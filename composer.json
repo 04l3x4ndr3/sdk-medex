@@ -13,5 +13,7 @@
             "name": "Alexandre G R Alves"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    }
 }
