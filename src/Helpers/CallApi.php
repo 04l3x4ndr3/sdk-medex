@@ -72,7 +72,7 @@ class CallApi
             $res = $client->request($method, "{$this->config->getUrl()}{$endpoint}", $options);
             return json_decode($res->getBody());
         } catch (ClientException $e) {
-            throw new Exception($e->getResponse()->getBody()->getContents(), $e->getCode(), $e);
+            throw new ClientException($e->getResponse()->getBody()->getContents(), $e->getCode(), $e);
         }
     }
 }
