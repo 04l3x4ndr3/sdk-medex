@@ -70,7 +70,7 @@ class Patient {
         return $this->id;
     }
 
-    public function setId(?string $id): TelemedicineUser
+    public function setId(?string $id): Patient
     {
         $this->id = $id;
         return $this;
@@ -81,7 +81,7 @@ class Patient {
         return $this->cpf;
     }
 
-    public function setCpf(?string $cpf): TelemedicineUser
+    public function setCpf(?string $cpf): Patient
     {
         $this->cpf = $cpf;
         return $this;
@@ -92,7 +92,7 @@ class Patient {
         return $this->name;
     }
 
-    public function setName(?string $name): TelemedicineUser
+    public function setName(?string $name): Patient
     {
         $this->name = $name;
         return $this;
@@ -103,7 +103,7 @@ class Patient {
         return $this->birthdate;
     }
 
-    public function setBirthdate(?string $birthdate): TelemedicineUser
+    public function setBirthdate(?string $birthdate): Patient
     {
         $this->birthdate = $birthdate;
         return $this;
@@ -114,7 +114,7 @@ class Patient {
         return $this->state;
     }
 
-    public function setState(?string $state): TelemedicineUser
+    public function setState(?string $state): Patient
     {
         $this->state = $state;
         return $this;
@@ -125,7 +125,7 @@ class Patient {
         return $this->city;
     }
 
-    public function setCity(?string $city): TelemedicineUser
+    public function setCity(?string $city): Patient
     {
         $this->city = $city;
         return $this;
@@ -136,7 +136,7 @@ class Patient {
         return $this->street;
     }
 
-    public function setStreet(?string $street): TelemedicineUser
+    public function setStreet(?string $street): Patient
     {
         $this->street = $street;
         return $this;
@@ -147,7 +147,7 @@ class Patient {
         return $this->number;
     }
 
-    public function setNumber(?int $number): TelemedicineUser
+    public function setNumber(?int $number): Patient
     {
         $this->number = $number;
         return $this;
@@ -158,7 +158,7 @@ class Patient {
         return $this->email;
     }
 
-    public function setEmail(?string $email): TelemedicineUser
+    public function setEmail(?string $email): Patient
     {
         $this->email = $email;
         return $this;
@@ -169,7 +169,7 @@ class Patient {
         return $this->phone;
     }
 
-    public function setPhone(?string $phone): TelemedicineUser
+    public function setPhone(?string $phone): Patient
     {
         $this->phone = $phone;
         return $this;
@@ -180,7 +180,7 @@ class Patient {
         return $this->company;
     }
 
-    public function setCompany(?string $company): TelemedicineUser
+    public function setCompany(?string $company): Patient
     {
         $this->company = $company;
         return $this;
@@ -191,7 +191,7 @@ class Patient {
         return $this->situation;
     }
 
-    public function setSituation(?string $situation): TelemedicineUser
+    public function setSituation(?string $situation): Patient
     {
         $this->situation = $situation;
         return $this;
@@ -202,7 +202,7 @@ class Patient {
         return $this->partner;
     }
 
-    public function setPartner(?string $partner): TelemedicineUser
+    public function setPartner(?string $partner): Patient
     {
         $this->partner = $partner;
         return $this;
@@ -213,7 +213,7 @@ class Patient {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?string $createdAt): TelemedicineUser
+    public function setCreatedAt(?string $createdAt): Patient
     {
         $this->createdAt = $createdAt;
         return $this;
