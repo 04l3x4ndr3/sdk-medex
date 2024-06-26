@@ -20,13 +20,13 @@ class Appointment {
         ?array $slots = [],
         ?string $slotAt = null,
         ?string $company = null,
-        ?Authorization $autorization = new Authorization()
+        ?Authorization $autorization = null
     ) {
         $this->cpf = $cpf;
         $this->slots = $slots;
         $this->slotAt = $slotAt;
         $this->company = $company;
-        $this->autorization = $autorization;
+        $this->autorization = $autorization ?? (new Authorization());
     }
 
     public function getCpf(): ?string
