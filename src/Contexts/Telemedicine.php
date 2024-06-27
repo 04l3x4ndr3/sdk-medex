@@ -77,7 +77,7 @@ class Telemedicine extends CallApi
      */
     public function partnerQueue(Patient $patient): object
     {
-        return $this->call("GET", "v1/partner/queue?cpf={$patient->getCpf()}");
+        return $this->call("GET", "/v1/partner/queue?cpf={$patient->getCpf()}");
     }
 
     /**
@@ -99,7 +99,7 @@ class Telemedicine extends CallApi
 
         $url = http_build_query($urlParams);
 
-        return $this->call("GET", "v1/calendar?$url");
+        return $this->call("GET", "/v1/calendar?$url");
     }
 
     /**
@@ -111,7 +111,7 @@ class Telemedicine extends CallApi
      */
     public function makeAnAppointment(Appointment $appointment): object
     {
-        return $this->call("POST", "v1/calendar", $appointment->toArray());
+        return $this->call("POST", "/v1/calendar", $appointment->toArray());
     }
 
     /**
@@ -123,7 +123,7 @@ class Telemedicine extends CallApi
      */
     public function remakeAnAppointment(Appointment $appointment): object
     {
-        return $this->call("PUT", "v1/calendar", $appointment->toArray());
+        return $this->call("PUT", "/v1/calendar", $appointment->toArray());
     }
 
     /**
