@@ -10,9 +10,9 @@ use O4l3x4ndr3\SdkMedex\Configuration;
 class CallApi
 {
     const CONTENT_TYPE_JSON = 'application/json';
-    const CONTENT_TYPE_URL_URLENCODED = "application/x-www-form-urlencoded";
-    const TOKEN_TYPE = 'Bearer';
+    const TOKEN_TYPE = 'Bearer ';
     const PARTNER_HASH = "777111452";
+    public const URL_AUTH = "https://partner-auth.medexapi.com/oauth2/token";
     private Configuration $config;
     private ?array $header;
     private ?array $credential;
@@ -56,12 +56,13 @@ class CallApi
     {
         $client = new Client();
         $options = [
-            'headers' => [
-                'Content-Type' => self::CONTENT_TYPE_URL_URLENCODED,
-            ],
-            'form_params' => $this->config->getCredential()
+            "form_params" => [
+                "grant_type" => "client_credentials",
+                "client_id" => $_SERVER["MEDEX_CLIENT_ID"],
+                "client_secret" => $_SERVER["MEDEX_CLIENT_SECRET"]
+            ]
         ];
-        $res = $client->request('POST', 'https://partner-auth.medexapi.com/oauth2/token', $options);
+        $res = $client->post(self::URL_AUTH, $options);
         return json_decode($res->getBody());
     }
 
@@ -82,7 +83,8 @@ class CallApi
             $options = array_filter([
                 'headers' => [
                     'Content-type' => self::CONTENT_TYPE_JSON,
-                    'Authorization' => self::TOKEN_TYPE . " $token"
+                    'Authorization' => self::TOKEN_TYPE . $token->access_token,
+                    'X-Partner-Hash' => self::PARTNER_HASH
                 ],
                 'json' => $body
             ]);
