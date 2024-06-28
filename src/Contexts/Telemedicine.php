@@ -141,7 +141,7 @@ class Telemedicine extends CallApi
 
     /**
      * @description Regenda uma consulta
-     * @document https://app.swaggerhub.com/apis/medex/medex-tmed_partner/1.0.0#/default/reagendarHorario
+     * @document https://app.swaggerhub.com/apis/medex/medex-tmed_partner/1.0.0#/default/buscaAgendamentosDoUsuario
      * @param string|null $cpf
      * @return object
      * @throws GuzzleException
