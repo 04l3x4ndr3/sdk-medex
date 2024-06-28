@@ -82,7 +82,6 @@ class CallApi
             $client = new Client();
             $options = array_filter([
                 'headers' => [
-                    'Content-type' => self::CONTENT_TYPE_JSON,
                     'Authorization' => self::TOKEN_TYPE . $token->access_token,
                     'X-Partner-Hash' => self::PARTNER_HASH
                 ],
