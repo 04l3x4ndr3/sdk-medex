@@ -44,6 +44,18 @@ class Telemedicine extends CallApi
     }
 
     /**
+     * @description Sair da fila de atendimento
+     * @document
+     * @param string|null $cpf
+     * @return object
+     * @throws GuzzleException
+     */
+    public function queueOut(?string $cpf): object
+    {
+        return $this->call("DELETE", "/v1/queue/$cpf");
+    }
+
+    /**
      * @description Cadatra/Edita os dados do usuário (paciente)
      * @document https://app.swaggerhub.com/apis/medex/medex-tmed_partner/1.0.0#/default/cadastroEditarUsuario
      * @param Patient $patient
